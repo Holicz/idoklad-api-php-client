@@ -1,0 +1,22 @@
+{
+    "name": "dobryprogramator/idoklad-api-php-client",
+    "description": "PHP client for iDoklad API v3",
+    "type": "library",
+    "require": {
+        "php": "^7.4",
+        "ext-json": "*",
+        "symfony/http-client": "^5.1",
+        "jms/serializer": "^3.9"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.50"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lukáš Holeczy",
+            "email": "info@lukasholeczy.eu"
+        }
+    ],
+    "minimum-stability": "stable"
+}
