@@ -1,5 +1,7 @@
-__info about library__
+# About
+Fill in
 # Installation
+Fill in
 # Supported use cases
 ## Contact
 ### Create contact
