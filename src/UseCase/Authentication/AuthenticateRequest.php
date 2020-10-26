@@ -60,6 +60,9 @@ final class AuthenticateRequest implements UseCaseRequestInterface
         return self::ENDPOINT;
     }
 
+    /**
+     * @return class-string<AuthenticationResponse>
+     */
     public function getResponseObjectClass(): string
     {
         return self::RESPONSE_CLASS;

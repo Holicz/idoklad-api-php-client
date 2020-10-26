@@ -53,5 +53,7 @@ You either do not have an active subscription, or it expired. See
 ### `DobryProgramator\iDoklad\Exception\UnauthorizedException`
 iDoklad says you are not authenticated. This is most likely a bug in this library. Please create an issue.
 ## 5xx
+## `DobryProgramator\iDoklad\Exception\CouldNotProcessResponseException`
+Throwed when iDoklad's response could not be parsed (e.g. when API response changed without maintaining BC).
 ## `DobryProgramator\iDoklad\Exception\iDokladServerException`
 Throwed when iDoklad API returns `5xx` HTTP code.

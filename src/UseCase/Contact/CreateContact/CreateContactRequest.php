@@ -159,6 +159,9 @@ final class CreateContactRequest implements UseCaseRequestInterface
         return self::ENDPOINT;
     }
 
+    /**
+     * @return class-string<CreateContactResponse>
+     */
     public function getResponseObjectClass(): string
     {
         return self::RESPONSE_CLASS;

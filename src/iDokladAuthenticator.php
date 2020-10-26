@@ -56,7 +56,6 @@ final class iDokladAuthenticator
             throw new iDokladServerException();
         }
 
-        /** @var AuthenticationResponse $authenticationResponse */
         return $this->serializer->deserialize(
             $response->getContent(false),
             $request->getResponseObjectClass(),

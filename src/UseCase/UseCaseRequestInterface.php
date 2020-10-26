@@ -10,5 +10,8 @@ interface UseCaseRequestInterface
 
     public function getEndpoint(): string;
 
+    /**
+     * @return class-string<UseCaseResponseInterface>
+     */
     public function getResponseObjectClass(): string;
 }

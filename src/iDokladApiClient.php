@@ -6,6 +6,7 @@ namespace DobryProgramator\iDoklad;
 
 use DobryProgramator\iDoklad\Exception\ApiRateExceededException;
 use DobryProgramator\iDoklad\Exception\BadRequestException;
+use DobryProgramator\iDoklad\Exception\CouldNotProcessResponseException;
 use DobryProgramator\iDoklad\Exception\iDokladServerException;
 use DobryProgramator\iDoklad\Exception\NoActiveSubscriptionException;
 use DobryProgramator\iDoklad\Exception\UnauthorizedException;
@@ -51,11 +52,17 @@ final class iDokladApiClient
             $this->authenticate();
         }
 
+        // TODO: Isn't there a better way?
         $json = $this->makeRequest($request);
         $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
+        $json = json_encode($data['Data']);
+
+        if ($json === false) {
+            throw new CouldNotProcessResponseException();
+        }
 
         return $this->serializer->deserialize(
-            json_encode($data['Data']),
+            $json,
             $request->getResponseObjectClass(),
             self::SERIALIZATION_FORMAT
         );

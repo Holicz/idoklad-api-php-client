@@ -150,7 +150,7 @@ final class CreateContactResponse implements UseCaseResponseInterface
         return $this->accountNumber;
     }
 
-    public function getBankId(): int
+    public function getBankId(): ?int
     {
         return $this->bankId;
     }
@@ -170,7 +170,7 @@ final class CreateContactResponse implements UseCaseResponseInterface
         return $this->countryId;
     }
 
-    public function getDefaultInvoiceMaturity(): int
+    public function getDefaultInvoiceMaturity(): ?int
     {
         return $this->defaultInvoiceMaturity;
     }
