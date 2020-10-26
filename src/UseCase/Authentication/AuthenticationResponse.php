@@ -29,9 +29,10 @@ final class AuthenticationResponse implements UseCaseResponseInterface
         return $this->accessToken;
     }
 
-    public function setAccessToken(string $accessToken): AuthenticationResponse
+    public function setAccessToken(string $accessToken): self
     {
         $this->accessToken = $accessToken;
+
         return $this;
     }
 
@@ -40,9 +41,10 @@ final class AuthenticationResponse implements UseCaseResponseInterface
         return $this->expiresIn;
     }
 
-    public function setExpiresIn(int $expiresIn): AuthenticationResponse
+    public function setExpiresIn(int $expiresIn): self
     {
         $this->expiresIn = $expiresIn;
+
         return $this;
     }
 
@@ -51,9 +53,10 @@ final class AuthenticationResponse implements UseCaseResponseInterface
         return $this->tokenType;
     }
 
-    public function setTokenType(string $tokenType): AuthenticationResponse
+    public function setTokenType(string $tokenType): self
     {
         $this->tokenType = $tokenType;
+
         return $this;
     }
 }

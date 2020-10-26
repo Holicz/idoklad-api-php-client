@@ -6,5 +6,4 @@ namespace DobryProgramator\iDoklad\UseCase;
 
 interface UseCaseResponseInterface
 {
-
 }

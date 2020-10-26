@@ -27,11 +27,15 @@ use function json_encode;
 final class iDokladApiClient
 {
     private const BASE_URI = 'https://api.idoklad.cz/v3/';
+
     private const SERIALIZATION_FORMAT = 'json';
 
     private iDokladAuthenticator $iDokladAuthenticator;
+
     private HttpClientInterface $httpClient;
+
     private SerializerInterface $serializer;
+
     private ?string $token;
 
     public function __construct(string $clientId, string $clientSecret)
@@ -40,7 +44,7 @@ final class iDokladApiClient
         $this->httpClient = HttpClient::createForBaseUri(self::BASE_URI);
         $this->serializer = SerializerBuilder::create()->build();
     }
-    
+
     public function sendRequest(UseCaseRequestInterface $request): UseCaseResponseInterface
     {
         if (!isset($this->token)) {

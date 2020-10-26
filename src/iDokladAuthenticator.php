@@ -19,8 +19,11 @@ final class iDokladAuthenticator
     private const SERIALIZATION_FORMAT = 'json';
 
     private string $clientId;
+
     private string $clientSecret;
+
     private HttpClientInterface $httpClient;
+
     private SerializerInterface $serializer;
 
     public function __construct(string $clientId, string $clientSecret)

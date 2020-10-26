@@ -6,7 +6,6 @@ namespace DobryProgramator\iDoklad\Exception;
 
 use RuntimeException;
 use Symfony\Component\HttpFoundation\Response;
-use Throwable;
 
 final class UnauthorizedException extends RuntimeException
 {

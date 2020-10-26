@@ -22,8 +22,11 @@ final class AuthenticateRequest implements UseCaseRequestInterface
     private const RESPONSE_CLASS = AuthenticationResponse::class;
 
     private string $grantType;
+
     private string $clientId;
+
     private string $clientSecret;
+
     private string $scope;
 
     public function __construct(string $clientId, string $clientSecret)

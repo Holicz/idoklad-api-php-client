@@ -11,7 +11,9 @@ use Symfony\Component\HttpFoundation\Request;
 final class CreateContactRequest implements UseCaseRequestInterface
 {
     private const HTTP_METHOD = Request::METHOD_POST;
+
     private const ENDPOINT = 'Contacts';
+
     private const RESPONSE_CLASS = CreateContactResponse::class;
 
     /**

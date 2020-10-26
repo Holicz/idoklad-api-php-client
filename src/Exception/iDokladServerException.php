@@ -7,8 +7,6 @@ namespace DobryProgramator\iDoklad\Exception;
 use RuntimeException;
 use Symfony\Component\HttpFoundation\Response;
 
-use function parent;
-
 final class iDokladServerException extends RuntimeException
 {
     public function __construct()
