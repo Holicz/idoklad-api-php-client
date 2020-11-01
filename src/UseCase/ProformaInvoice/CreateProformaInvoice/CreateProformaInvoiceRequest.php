@@ -5,6 +5,12 @@ declare(strict_types=1);
 namespace DobryProgramator\iDoklad\UseCase\ProformaInvoice\CreateProformaInvoice;
 
 use DateTimeInterface;
+use DobryProgramator\iDoklad\Enum\Currency;
+use DobryProgramator\iDoklad\Enum\EetResponsibility;
+use DobryProgramator\iDoklad\Enum\Exported;
+use DobryProgramator\iDoklad\Enum\PaymentOption;
+use DobryProgramator\iDoklad\Enum\ReportLanguage;
+use DobryProgramator\iDoklad\Enum\VatOnPayStatus;
 use DobryProgramator\iDoklad\UseCase\Contact\CreateContact\CreateContactResponse;
 use DobryProgramator\iDoklad\UseCase\ProformaInvoice\CreateProformaInvoice\Request\Item;
 use DobryProgramator\iDoklad\UseCase\UseCaseRequestInterface;
@@ -36,8 +42,9 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
 
     /**
      * @Serializer\SerializedName("CurrencyId")
+     * @Serializer\Type("enum")
      */
-    private int $currencyId;
+    private Currency $currencyId;
 
     /**
      * @Serializer\SerializedName("DateOfIssue")
@@ -76,8 +83,9 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
 
     /**
      * @Serializer\SerializedName("EetResponsibility")
+     * @Serializer\Type("enum")
      */
-    private ?int $eetResponsibility = null;
+    private ?EetResponsibility $eetResponsibility = null;
 
     /**
      * @Serializer\SerializedName("ExchangeRate")
@@ -90,9 +98,10 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
     private ?float $exchangeRateAmount = null;
 
     /**
-     * @Serializer\SerializedName("Exportedů)
+     * @Serializer\SerializedName("Exported")
+     * @Serializer\Type("enum")
      */
-    private ?int $exported = null;
+    private ?Exported $exported = null;
 
     /**
      * @Serializer\SerializedName("Iban")
@@ -153,13 +162,15 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
 
     /**
      * @Serializer\SerializedName("PaymentOptionId")
+     * @Serializer\Type("enum")
      */
-    private int $paymentOptionId;
+    private PaymentOption $paymentOptionId;
 
     /**
      * @Serializer\SerializedName("ReportLanguage")
+     * @Serializer\Type("enum")
      */
-    private ?int $reportLanguage = null;
+    private ?ReportLanguage $reportLanguage = null;
 
     /**
      * @Serializer\SerializedName("SalesOrderId")
@@ -190,11 +201,12 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
 
     /**
      * @Serializer\SerializedName("VatOnPayStatus")
+     * @Serializer\Type("enum")
      */
-    private ?int $vatOnPayStatus = null;
+    private ?VatOnPayStatus $vatOnPayStatus = null;
 
     public function __construct(
-        int $currencyId,
+        Currency $currencyId,
         DateTimeInterface $dateOfIssue,
         DateTimeInterface $dateOfMaturity,
         string $description,
@@ -204,7 +216,7 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
         bool $isProformaTaxed,
         int $numericSequenceId,
         int $partnerId,
-        int $paymentOptionId
+        PaymentOption $paymentOptionId
     ) {
         $this->currencyId = $currencyId;
         $this->dateOfIssue = $dateOfIssue;
@@ -273,7 +285,7 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
         return $this;
     }
 
-    public function getCurrencyId(): int
+    public function getCurrencyId(): Currency
     {
         return $this->currencyId;
     }
@@ -334,12 +346,12 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
         return $this->documentSerialNumber;
     }
 
-    public function getEetResponsibility(): ?int
+    public function getEetResponsibility(): ?EetResponsibility
     {
         return $this->eetResponsibility;
     }
 
-    public function setEetResponsibility(?int $eetResponsibility): self
+    public function setEetResponsibility(?EetResponsibility $eetResponsibility): self
     {
         $this->eetResponsibility = $eetResponsibility;
 
@@ -370,12 +382,12 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
         return $this;
     }
 
-    public function getExported(): ?int
+    public function getExported(): ?Exported
     {
         return $this->exported;
     }
 
-    public function setExported(?int $exported): self
+    public function setExported(?Exported $exported): self
     {
         $this->exported = $exported;
 
@@ -482,17 +494,17 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
         return $this->partnerId;
     }
 
-    public function getPaymentOptionId(): int
+    public function getPaymentOptionId(): PaymentOption
     {
         return $this->paymentOptionId;
     }
 
-    public function getReportLanguage(): ?int
+    public function getReportLanguage(): ?ReportLanguage
     {
         return $this->reportLanguage;
     }
 
-    public function setReportLanguage(?int $reportLanguage): self
+    public function setReportLanguage(?ReportLanguage $reportLanguage): self
     {
         $this->reportLanguage = $reportLanguage;
 
@@ -572,12 +584,12 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
         return $this;
     }
 
-    public function getVatOnPayStatus(): ?int
+    public function getVatOnPayStatus(): ?VatOnPayStatus
     {
         return $this->vatOnPayStatus;
     }
 
-    public function setVatOnPayStatus(?int $vatOnPayStatus): self
+    public function setVatOnPayStatus(?VatOnPayStatus $vatOnPayStatus): self
     {
         $this->vatOnPayStatus = $vatOnPayStatus;
 

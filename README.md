@@ -2,6 +2,8 @@
 Fill in
 # Installation
 Fill in
+# Usage
+Fill in
 # Supported use cases
 ## Contact
 ### Create contact
@@ -15,7 +17,7 @@ use DobryProgramator\iDoklad\iDokladApiClient;
 use DobryProgramator\iDoklad\UseCase\Contact\CreateContact\CreateContactRequest;
 
 $idokladClient = new iDokladApiClient('clientId', 'clientSecret');
-$createContactRequest = new CreateContactRequest('Acme Corporation', Country::CZECHIA);
+$createContactRequest = new CreateContactRequest('Acme Corporation', Country::CZECHIA());
 $createContactRequest->setFirstname('John');
 $createContactRequest->setSurname('Doe');
 // All fields according to the documentation are available
@@ -26,9 +28,21 @@ $response = $idokladClient->sendRequest($createContactRequest);
 ## Country [🔗](https://api.idoklad.cz/Help/v3/en/#api-Lists-CountriesList_of_states)
 Corresponds to iDoklad documentation, enum name is `NameEnglish`.
 ## Currency [🔗](https://api.idoklad.cz/Help/v3/en/#api-Lists-CurrenciesList_of_currencies)
-Corresponds to iDoklad documentation, enum name is `Code`. 
+Corresponds to iDoklad documentation, enum name is `Code`.
+## EetResponsibility
+| iDoklad explanation                                                | Enum                                                                    |
+|--------------------------------------------------------------------|-------------------------------------------------------------------------|
+| ItsMyBill will register the document into EET for you.             | `DobryProgramator\iDoklad\Enum\EetResponsibility::IDOKLAD`              |
+| Use if you don't want ItsMyBill to register the document into EET. | `DobryProgramator\iDoklad\Enum\EetResponsibility::EXTERNAL_APPLICATION` |
+## Exported
+| iDoklad explanation                                                                                                                          | Enum                                                   |
+|----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| The document was not exported.                                                                                                               | `DobryProgramator\iDoklad\Enum\Exported::NOT_EXPORTED` |
+| The document was exported to an external accounting system. Changing a document with Exported = 1 will change the exported value to Changed. | `DobryProgramator\iDoklad\Enum\Exported::EXPORTED`     |
+| The document was exported and later changed in ItsMyBill.                                                                                    | `DobryProgramator\iDoklad\Enum\Exported::CHANGED`      |
+| The document was exported and later deleted in ItsMyBill.                                                                                    | `DobryProgramator\iDoklad\Enum\Exported::DELETED`      |
 ## Payment option
-| iDoklad name      | Enum                                                              |
+| iDoklad name       | Enum                                                              |
 |--------------------|-------------------------------------------------------------------|
 | Převodem           | `DobryProgramator\iDoklad\Enum\PaymentOption::BANK_TRANSFER`      |
 | Kartou             | `DobryProgramator\iDoklad\Enum\PaymentOption::ONLINE_BY_CARD`     |
@@ -39,6 +53,32 @@ Corresponds to iDoklad documentation, enum name is `Code`.
 | Haléřové dorovnání | `DobryProgramator\iDoklad\Enum\PaymentOption::PENNY_COMPENSATION` |
 | Stravenka          | `DobryProgramator\iDoklad\Enum\PaymentOption::MEAL_VOUCHER`       |
 | PayPal             | `DobryProgramator\iDoklad\Enum\PaymentOption::PAYPAL`             |
+## PriceType 
+| iDoklad explanation | Enum                                                   |
+|---------------------|--------------------------------------------------------|
+| Price incl. VAT     | `DobryProgramator\iDoklad\Enum\PriceType::WITH_VAT`    |
+| Price without VAT   | `DobryProgramator\iDoklad\Enum\PriceType::WITHOUT_VAT` |
+| Base only           | `DobryProgramator\iDoklad\Enum\PriceType::ONLY_BASE`   |
+## ReportLanguage
+| iDoklad explanation | Enum                                               |
+|---------------------|----------------------------------------------------|
+| Czech               | `DobryProgramator\iDoklad\Enum\ReportLanguage::CZ` |
+| Slovak              | `DobryProgramator\iDoklad\Enum\ReportLanguage::SK` |
+| English             | `DobryProgramator\iDoklad\Enum\ReportLanguage::EN` |
+| German              | `DobryProgramator\iDoklad\Enum\ReportLanguage::DE` |
+## VatOnPayStatus
+| iDoklad explanation                                                                                                                                                          | Enum                                                                 |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| Outside of the mode                                                                                                                                                          | `DobryProgramator\iDoklad\Enum\VatOnPayStatus::DISABLED`             |
+| Within the mode                                                                                                                                                              | `DobryProgramator\iDoklad\Enum\VatOnPayStatus::ENABLED`              |
+| Invoice was within the mode VatOnPay, user has ended this mode while the invoice has not been paid and it is necessary to settle the invoice as of the last day of this mode | `DobryProgramator\iDoklad\Enum\VatOnPayStatus::INVOICE_NEEDS_TAXING` |
+## VatRateType
+| iDoklad explanation     | Enum                                                   |
+|-------------------------|--------------------------------------------------------|
+| First reduced VAT rate  | `DobryProgramator\iDoklad\Enum\VatRateType::REDUCED_1` |
+| Basic sazba VAT rate    | `DobryProgramator\iDoklad\Enum\VatRateType::BASIC`     |
+| Zero sazba VAT rate     | `DobryProgramator\iDoklad\Enum\VatRateType::ZERO`      |
+| Second reduced VAT rate | `DobryProgramator\iDoklad\Enum\VatRateType::REDUCED_2` |
 # Throwed exceptions
 ## 4xx
 ### `DobryProgramator\iDoklad\Exception\ApiRateExceededException`

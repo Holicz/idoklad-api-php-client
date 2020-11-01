@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace DobryProgramator\iDoklad\UseCase\ProformaInvoice\CreateProformaInvoice\Request;
 
+use DobryProgramator\iDoklad\Enum\PriceType;
+use DobryProgramator\iDoklad\Enum\VatRateType;
 use JMS\Serializer\Annotation as Serializer;
 
 final class Item
@@ -35,8 +37,9 @@ final class Item
 
     /**
      * @Serializer\SerializedName("PriceType")
+     * @Serializer\Type("enum")
      */
-    private int $priceType;
+    private PriceType $priceType;
 
     /**
      * @Serializer\SerializedName("Unit")
@@ -55,16 +58,17 @@ final class Item
 
     /**
      * @Serializer\SerializedName("VatRateType")
+     * @Serializer\Type("enum")
      */
-    private int $vatRateType;
+    private VatRateType $vatRateType;
 
     public function __construct(
         float $amount,
         bool $isTaxMovement,
         string $name,
-        int $priceType,
+        PriceType $priceType,
         float $unitPrice,
-        int $vatRateType
+        VatRateType $vatRateType
     ) {
         $this->amount = $amount;
         $this->isTaxMovement = $isTaxMovement;
@@ -111,7 +115,7 @@ final class Item
         return $this;
     }
 
-    public function getPriceType(): int
+    public function getPriceType(): PriceType
     {
         return $this->priceType;
     }
@@ -143,7 +147,7 @@ final class Item
         return $this;
     }
 
-    public function getVatRateType(): int
+    public function getVatRateType(): VatRateType
     {
         return $this->vatRateType;
     }
