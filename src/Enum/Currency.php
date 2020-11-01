@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace DobryProgramator\iDoklad\Enum;
 
-final class Currency
+use MabeEnum\Enum;
+
+final class Currency extends Enum
 {
     public const CZK = 1;
 

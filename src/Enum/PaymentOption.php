@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace DobryProgramator\iDoklad\Enum;
 
-final class PaymentOption
+use MabeEnum\Enum;
+
+final class PaymentOption extends Enum
 {
     public const BANK_TRANSFER = 1;
 

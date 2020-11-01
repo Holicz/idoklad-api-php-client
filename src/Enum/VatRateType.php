@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace DobryProgramator\iDoklad\Enum;
 
-final class VatRateType
+use MabeEnum\Enum;
+
+final class VatRateType extends Enum
 {
     public const REDUCED_1 = 0;
 

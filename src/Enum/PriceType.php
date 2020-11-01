@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace DobryProgramator\iDoklad\Enum;
 
-final class PriceType
+use MabeEnum\Enum;
+
+final class PriceType extends Enum
 {
     public const WITH_VAT = 0;
 
