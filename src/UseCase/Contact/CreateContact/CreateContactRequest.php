@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DobryProgramator\iDoklad\UseCase\Contact\CreateContact;
 
+use DobryProgramator\iDoklad\Enum\Country;
 use DobryProgramator\iDoklad\UseCase\UseCaseRequestInterface;
 use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\HttpFoundation\Request;
@@ -38,8 +39,9 @@ final class CreateContactRequest implements UseCaseRequestInterface
 
     /**
      * @Serializer\SerializedName("CountryId")
+     * @Serializer\Type("enum")
      */
-    private int $countryId;
+    private Country $countryId;
 
     /**
      * @Serializer\SerializedName("DefaultInvoiceMaturity")
@@ -143,7 +145,7 @@ final class CreateContactRequest implements UseCaseRequestInterface
 
     public function __construct(
         string $companyName,
-        int $countryId
+        Country $countryId
     ) {
         $this->companyName = $companyName;
         $this->countryId = $countryId;
@@ -208,7 +210,7 @@ final class CreateContactRequest implements UseCaseRequestInterface
         return $this->companyName;
     }
 
-    public function getCountryId(): int
+    public function getCountryId(): Country
     {
         return $this->countryId;
     }

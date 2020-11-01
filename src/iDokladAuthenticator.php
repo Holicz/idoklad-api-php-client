@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace DobryProgramator\iDoklad;
 
 use DobryProgramator\iDoklad\Exception\iDokladServerException;
+use DobryProgramator\iDoklad\Serializer\SerializerBuilder;
 use DobryProgramator\iDoklad\UseCase\Authentication\AuthenticateRequest;
 use DobryProgramator\iDoklad\UseCase\Authentication\AuthenticationException;
 use DobryProgramator\iDoklad\UseCase\Authentication\AuthenticationResponse;
-use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,7 +31,7 @@ final class iDokladAuthenticator
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
         $this->httpClient = HttpClient::create();
-        $this->serializer = SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::build();
     }
 
     public function authenticate(): AuthenticationResponse

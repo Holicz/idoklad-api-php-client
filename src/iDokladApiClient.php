@@ -10,9 +10,9 @@ use DobryProgramator\iDoklad\Exception\CouldNotProcessResponseException;
 use DobryProgramator\iDoklad\Exception\iDokladServerException;
 use DobryProgramator\iDoklad\Exception\NoActiveSubscriptionException;
 use DobryProgramator\iDoklad\Exception\UnauthorizedException;
+use DobryProgramator\iDoklad\Serializer\SerializerBuilder;
 use DobryProgramator\iDoklad\UseCase\UseCaseRequestInterface;
 use DobryProgramator\iDoklad\UseCase\UseCaseResponseInterface;
-use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,7 +43,7 @@ final class iDokladApiClient
     {
         $this->iDokladAuthenticator = new iDokladAuthenticator($clientId, $clientSecret);
         $this->httpClient = HttpClient::createForBaseUri(self::BASE_URI);
-        $this->serializer = SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::build();
     }
 
     public function sendRequest(UseCaseRequestInterface $request): UseCaseResponseInterface

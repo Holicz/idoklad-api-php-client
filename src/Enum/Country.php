@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace DobryProgramator\iDoklad\Enum;
 
-final class Country
+use MabeEnum\Enum;
+
+final class Country extends Enum
 {
     public const THE_SLOVAK_REPUBLIC = 1;
 

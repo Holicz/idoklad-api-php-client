@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DobryProgramator\iDoklad\UseCase\Contact\CreateContact;
 
+use DobryProgramator\iDoklad\Enum\Country;
 use DobryProgramator\iDoklad\UseCase\Metadata;
 use DobryProgramator\iDoklad\UseCase\UseCaseResponseInterface;
 use JMS\Serializer\Annotation as Serializer;
@@ -32,8 +33,9 @@ final class CreateContactResponse implements UseCaseResponseInterface
 
     /**
      * @Serializer\SerializedName("CountryId")
+     * @Serializer\Type("enum<'DobryProgramator\iDoklad\Enum\Country'>")
      */
-    private int $countryId;
+    private Country $countryId;
 
     /**
      * @Serializer\SerializedName("DefaultInvoiceMaturity")
@@ -165,7 +167,7 @@ final class CreateContactResponse implements UseCaseResponseInterface
         return $this->companyName;
     }
 
-    public function getCountryId(): int
+    public function getCountryId(): Country
     {
         return $this->countryId;
     }
