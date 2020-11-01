@@ -88,9 +88,10 @@ final class Item
         return $this->code;
     }
 
-    public function setCode(?string $code): Item
+    public function setCode(?string $code): self
     {
         $this->code = $code;
+
         return $this;
     }
 
@@ -109,9 +110,10 @@ final class Item
         return $this->priceListItemId;
     }
 
-    public function setPriceListItemId(?int $priceListItemId): Item
+    public function setPriceListItemId(?int $priceListItemId): self
     {
         $this->priceListItemId = $priceListItemId;
+
         return $this;
     }
 
@@ -125,9 +127,10 @@ final class Item
         return $this->unit;
     }
 
-    public function setUnit(?string $unit): Item
+    public function setUnit(?string $unit): self
     {
         $this->unit = $unit;
+
         return $this;
     }
 
@@ -141,9 +144,10 @@ final class Item
         return $this->vatCodeId;
     }
 
-    public function setVatCodeId(?int $vatCodeId): Item
+    public function setVatCodeId(?int $vatCodeId): self
     {
         $this->vatCodeId = $vatCodeId;
+
         return $this;
     }
 

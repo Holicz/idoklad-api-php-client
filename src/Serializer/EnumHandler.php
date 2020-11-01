@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace DobryProgramator\iDoklad\Serializer;
 
-use DobryProgramator\iDoklad\Enum\Country;
+use JMS\Serializer\Context;
 use JMS\Serializer\GraphNavigatorInterface;
 use JMS\Serializer\Handler\SubscribingHandlerInterface;
-use JMS\Serializer\JsonSerializationVisitor;
 use JMS\Serializer\JsonDeserializationVisitor;
-use JMS\Serializer\Context;
+use JMS\Serializer\JsonSerializationVisitor;
 use MabeEnum\Enum;
 
 use function call_user_func;

@@ -13,7 +13,7 @@ final class SerializerBuilder
     public static function build(): SerializerInterface
     {
         return \JMS\Serializer\SerializerBuilder::create()
-            ->configureHandlers(static function(HandlerRegistry $registry) {
+            ->configureHandlers(static function (HandlerRegistry $registry): void {
                 $registry->registerSubscribingHandler(new EnumHandler());
                 $registry->registerSubscribingHandler(new DateHandler(\DateTime::ATOM, 'UTC'));
             })
