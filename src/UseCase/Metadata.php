@@ -6,6 +6,7 @@ namespace DobryProgramator\iDoklad\UseCase;
 
 use DateTimeInterface;
 use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\Type;
 
 final class Metadata
 {
@@ -23,13 +24,13 @@ final class Metadata
 
     /**
      * @Serializer\SerializedName("UserCreatedId")
-     * @Serializer\Type("int")
+     * @Type("int")
      */
     private int $userCreatedId;
 
     /**
      * @Serializer\SerializedName("UserLastChangeId")
-     * @Serializer\Type("int")
+     * @Type("int")
      */
     private int $userLastChangedId;
 

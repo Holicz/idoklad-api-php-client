@@ -6,24 +6,25 @@ namespace DobryProgramator\iDoklad\UseCase\Authentication;
 
 use DobryProgramator\iDoklad\UseCase\UseCaseResponseInterface;
 use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\Type;
 
 final class AuthenticationResponse implements UseCaseResponseInterface
 {
     /**
      * @Serializer\SerializedName("access_token")
-     * @Serializer\Type("string")
+     * @Type("string")
      */
     private string $accessToken;
 
     /**
      * @Serializer\SerializedName("expires_in")
-     * @Serializer\Type("int")
+     * @Type("int")
      */
     private int $expiresIn;
 
     /**
      * @Serializer\SerializedName("token_type")
-     * @Serializer\Type("string")
+     * @Type("string")
      */
     private string $tokenType;
 

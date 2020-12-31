@@ -46,27 +46,27 @@ final class NewInvoiceRequest implements UseCaseRequestInterface
     /**
      * @Serializer\SerializedName("DateOfIssue")
      */
-    private DateTimeInterface $dateOfIssue;
+    private \DateTime $dateOfIssue;
 
     /**
      * @Serializer\SerializedName("DateOfMaturity")
      */
-    private DateTimeInterface $dateOfMaturity;
+    private \DateTime $dateOfMaturity;
 
     /**
      * @Serializer\SerializedName("DateOfPayment")
      */
-    private ?DateTimeInterface $dateOfPayment = null;
+    private ?\DateTime $dateOfPayment = null;
 
     /**
      * @Serializer\SerializedName("DateOfTaxing")
      */
-    private DateTimeInterface $dateOfTaxing;
+    private \DateTime $dateOfTaxing;
 
     /**
      * @Serializer\SerializedName("DateOfVatApplication")
      */
-    private ?DateTimeInterface $dateOfVatApplication = null;
+    private ?\DateTime $dateOfVatApplication = null;
 
     /**
      * @Serializer\SerializedName("DeliveryAddressId")
@@ -215,10 +215,10 @@ final class NewInvoiceRequest implements UseCaseRequestInterface
 
 
     public function __construct(
-        int $currencyId,
-        DateTimeInterface $dateOfIssue,
-        DateTimeInterface $dateOfMaturity,
-        DateTimeInterface $dateOfTaxing,
+        Currency $currencyId,
+        \DateTime $dateOfIssue,
+        \DateTime $dateOfMaturity,
+        \DateTime $dateOfTaxing,
         string $description,
         int $documentSerialNumber,
         bool $isEet,
@@ -226,7 +226,7 @@ final class NewInvoiceRequest implements UseCaseRequestInterface
         array $items,
         int $numericSequenceId,
         int $partnerId,
-        int $paymentOptionId
+        PaymentOption $paymentOptionId
     ) {
         $this->currencyId = $currencyId;
         $this->dateOfIssue = $dateOfIssue;
@@ -301,39 +301,39 @@ final class NewInvoiceRequest implements UseCaseRequestInterface
         return $this->currencyId;
     }
 
-    public function getDateOfIssue(): DateTimeInterface
+    public function getDateOfIssue(): \DateTime
     {
         return $this->dateOfIssue;
     }
 
-    public function getDateOfMaturity(): DateTimeInterface
+    public function getDateOfMaturity(): \DateTime
     {
         return $this->dateOfMaturity;
     }
 
-    public function getDateOfPayment(): ?DateTimeInterface
+    public function getDateOfPayment(): ?\DateTime
     {
         return $this->dateOfPayment;
     }
 
-    public function setDateOfPayment(?DateTimeInterface $dateOfPayment): self
+    public function setDateOfPayment(?\DateTime  $dateOfPayment): self
     {
         $this->dateOfPayment = $dateOfPayment;
 
         return $this;
     }
 
-    public function getDateOfTaxing(): ?DateTimeInterface
+    public function getDateOfTaxing(): ?\DateTime
     {
         return $this->dateOfTaxing;
     }
 
-    public function getDateOfVatApplication(): ?DateTimeInterface
+    public function getDateOfVatApplication(): ?\DateTime
     {
         return $this->dateOfVatApplication;
     }
 
-    public function setDateOfVatApplication(?DateTimeInterface $dateOfVatApplication): self
+    public function setDateOfVatApplication(?\DateTime $dateOfVatApplication): self
     {
         $this->dateOfVatApplication = $dateOfVatApplication;
 
