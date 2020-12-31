@@ -38,7 +38,7 @@ final class Item
 
     /**
      * @Serializer\SerializedName("ItemType")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<DobryProgramator\iDoklad\Enum\ItemType>")
      */
     private ?ItemType $itemType = null;
 
@@ -54,7 +54,7 @@ final class Item
 
     /**
      * @Serializer\SerializedName("PriceType")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<DobryProgramator\iDoklad\Enum\PriceType>")
      */
     private PriceType $priceType;
 
@@ -75,7 +75,7 @@ final class Item
 
     /**
      * @Serializer\SerializedName("VatRateType")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<DobryProgramator\iDoklad\Enum\VatRateType>")
      */
     private VatRateType $vatRateType;
 

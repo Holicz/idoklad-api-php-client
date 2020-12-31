@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\Response;
 
 use DobryProgramator\iDoklad\Enum\Country;
+use JMS\Serializer\Annotation as Serializer;
 
 final class DeliveryAddress
 {

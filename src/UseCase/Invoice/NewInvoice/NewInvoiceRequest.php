@@ -40,32 +40,37 @@ final class NewInvoiceRequest implements UseCaseRequestInterface
 
     /**
      * @Serializer\SerializedName("CurrencyId")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<DobryProgramator\iDoklad\Enum\Currency>")
      */
     private Currency $currencyId;
 
     /**
      * @Serializer\SerializedName("DateOfIssue")
+     * @Serializer\Type("DateTime<'Y-m-d'>")
      */
     private \DateTime $dateOfIssue;
 
     /**
      * @Serializer\SerializedName("DateOfMaturity")
+     * @Serializer\Type("DateTime<'Y-m-d'>")
      */
     private \DateTime $dateOfMaturity;
 
     /**
      * @Serializer\SerializedName("DateOfPayment")
+     * @Serializer\Type("DateTime<'Y-m-d'>")
      */
     private ?\DateTime $dateOfPayment = null;
 
     /**
      * @Serializer\SerializedName("DateOfTaxing")
+     * @Serializer\Type("DateTime<'Y-m-d'>")
      */
     private \DateTime $dateOfTaxing;
 
     /**
      * @Serializer\SerializedName("DateOfVatApplication")
+     * @Serializer\Type("DateTime<'Y-m-d'>")
      */
     private ?\DateTime $dateOfVatApplication = null;
 
@@ -91,7 +96,7 @@ final class NewInvoiceRequest implements UseCaseRequestInterface
 
     /**
      * @Serializer\SerializedName("EetResponsibility")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<DobryProgramator\iDoklad\Enum\EetResponsibility>")
      */
     private ?EetResponsibility $eetResponsibility = null;
 
@@ -159,20 +164,20 @@ final class NewInvoiceRequest implements UseCaseRequestInterface
 
     /**
      * @Serializer\SerializedName("PaymentOptionId")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<DobryProgramator\iDoklad\Enum\PaymentOption>")
      */
     private PaymentOption $paymentOptionId;
 
     /**
      * @Serializer\SerializedName("ProformaInvoices")
      *
-     * @var array<int>
+     * @var array<int>|null
      */
-    private array $proformaInvoices = [];
+    private ?array $proformaInvoices = null;
 
     /**
      * @Serializer\SerializedName("ReportLanguage")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<DobryProgramator\iDoklad\Enum\ReportLanguage>")
      */
     private ?ReportLanguage $reportLanguage = null;
 
@@ -194,9 +199,9 @@ final class NewInvoiceRequest implements UseCaseRequestInterface
     /**
      * @Serializer\SerializedName("Tags")
      *
-     * @var array<int>
+     * @var array<int>|null
      */
-    private array $tags = [];
+    private ?array $tags = null;
 
     /**
      * @Serializer\SerializedName("VariableSymbol")
@@ -205,7 +210,7 @@ final class NewInvoiceRequest implements UseCaseRequestInterface
 
     /**
      * @Serializer\SerializedName("VatOnPayStatus")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<DobryProgramator\iDoklad\Enum\VatOnPayStatus>")
      */
     private ?VatOnPayStatus $vatOnPayStatus = null;
 
