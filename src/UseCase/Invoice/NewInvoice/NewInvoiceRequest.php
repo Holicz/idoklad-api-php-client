@@ -10,6 +10,7 @@ use DobryProgramator\iDoklad\Enum\PaymentOption;
 use DobryProgramator\iDoklad\Enum\ReportLanguage;
 use DobryProgramator\iDoklad\Enum\VatOnPayStatus;
 use DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\Request\Item;
+use DobryProgramator\iDoklad\UseCase\Invoice\NewInvoiceResponse\NewInvoiceResponse;
 use DobryProgramator\iDoklad\UseCase\UseCaseRequestInterface;
 use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,9 +19,9 @@ final class NewInvoiceRequest implements UseCaseRequestInterface
 {
     private const HTTP_METHOD = Request::METHOD_POST;
 
-    private const ENDPOINT = 'https://api.idoklad.cz/v3/IssuedInvoices';
+    private const ENDPOINT = 'IssuedInvoices';
 
-    private const RESPONSE_CLASS = CreateContactResponse::class;
+    private const RESPONSE_CLASS = NewInvoiceResponse::class;
 
     /**
      * @Serializer\SerializedName("AccountNumber")
