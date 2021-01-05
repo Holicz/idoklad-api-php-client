@@ -8,84 +8,97 @@ use DobryProgramator\iDoklad\Enum\ItemType;
 use DobryProgramator\iDoklad\Enum\PriceType;
 use DobryProgramator\iDoklad\Enum\VatRateType;
 use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\Type;
 
 final class Item
 {
     /**
      * @Serializer\SerializedName("Amount")
+     * @Type("float")
      */
     private float $amount;
 
     /**
      * @Serializer\SerializedName("Code")
+     * @Type("string")
      */
     private string $code;
 
     /**
      * @Serializer\SerializedName("DiscountName")
+     * @Type("string")
      */
     private string $discountName;
 
     /**
      * @Serializer\SerializedName("DiscountPercentage")
+     * @Type("float")
      */
     private float $discountPercentage;
 
     /**
      * @Serializer\SerializedName("Id")
+     * @Type("int")
      */
     private int $id;
 
     /**
      * @Serializer\SerializedName("IsTaxMovement")
+     * @Type("bool")
      */
     private bool $isTaxMovement;
 
     /**
      * @Serializer\SerializedName("ItemType")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<'DobryProgramator\iDoklad\Enum\ItemType'>")
      */
     private ItemType $itemType;
 
     /**
      * @Serializer\SerializedName("Name")
+     * @Type("string")
      */
     private string $name;
 
     /**
      * @Serializer\SerializedName("PriceListItemId")
+     * @Type("string")
      */
     private int $priceListItemId;
 
     /**
      * @Serializer\SerializedName("Prices")
+     * @Type("DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\Response\ItemPrices")
      */
     private ItemPrices $prices;
 
     /**
      * @Serializer\SerializedName("PriceType")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<'DobryProgramator\iDoklad\Enum\PriceType'>")
      */
     private PriceType $priceType;
 
     /**
      * @Serializer\SerializedName("Unit")
+     * @Type("string")
      */
     private string $unit;
 
     /**
      * @Serializer\SerializedName("VatCodeId")
+     * @Type("int")
      */
     private int $vatCodeId;
 
     /**
      * @Serializer\SerializedName("VatRate")
+     * @Type("float")
      */
     private float $vatRate;
 
     /**
      * @Serializer\SerializedName("VatRateType")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<'DobryProgramator\iDoklad\Enum\VatRateType'>")
      */
     private VatRateType $vatRateType;
 

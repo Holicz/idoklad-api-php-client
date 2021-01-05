@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DobryProgramator\iDoklad\UseCase\Invoice\NewInvoiceResponse;
+namespace DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice;
 
 use DobryProgramator\iDoklad\Enum\Currency;
 use DobryProgramator\iDoklad\Enum\EetResponsibility;
@@ -20,11 +20,13 @@ use DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\Response\Tag;
 use DobryProgramator\iDoklad\UseCase\Metadata;
 use DobryProgramator\iDoklad\UseCase\UseCaseResponseInterface;
 use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\Type;
 
 final class NewInvoiceResponse implements UseCaseResponseInterface
 {
     /**
      * @Serializer\SerializedName("Attachments")
+     * @Type("array")
      *
      * @var array<int, Attachment>
      */
@@ -32,125 +34,145 @@ final class NewInvoiceResponse implements UseCaseResponseInterface
 
     /**
      * @Serializer\SerializedName("ConstantSymbolId")
+     * @Type("int")
      */
     private int $constantSymbolId;
 
     /**
      * @Serializer\SerializedName("CurrencyId")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<'DobryProgramator\iDoklad\Enum\Currency'>")
      */
     private Currency $currencyId;
 
     /**
      * @Serializer\SerializedName("DateOfAccountingEvent")
+     * @Type("datetime")
      */
-    private DateTimeInterface $dateOfAccountingEvent;
+    private \DateTimeInterface $dateOfAccountingEvent;
 
     /**
      * @Serializer\SerializedName("DateOfIssue")
+     * @Type("datetime")
      */
-    private DateTimeInterface $dateOfIssue;
+    private \DateTimeInterface $dateOfIssue;
 
     /**
      * @Serializer\SerializedName("DateOfLastReminder")
+     * @Type("datetime")
      */
-    private DateTimeInterface $dateOfLastReminder;
+    private \DateTimeInterface $dateOfLastReminder;
 
     /**
      * @Serializer\SerializedName("DateOfMaturity")
+     * @Type("datetime")
      */
-    private DateTimeInterface $dateOfMaturity;
+    private \DateTimeInterface $dateOfMaturity;
 
     /**
      * @Serializer\SerializedName("DateOfPayment")
+     * @Type("datetime")
      */
-    private DateTimeInterface $dateOfPayment;
+    private \DateTimeInterface $dateOfPayment;
 
     /**
      * @Serializer\SerializedName("DateOfTaxing")
+     * @Type("datetime")
      */
-    private DateTimeInterface $dateOfTaxing;
+    private \DateTimeInterface $dateOfTaxing;
 
     /**
      * @Serializer\SerializedName("DateOfVatApplication")
+     * @Type("datetime")
      */
-    private DateTimeInterface $dateOfVatApplication;
+    private \DateTimeInterface $dateOfVatApplication;
 
     /**
      * @Serializer\SerializedName("DeliveryAddress")
+     * @Type("DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\Response\DeliveryAddress")
      */
-    private DeliveryAddress $deliveryAddress;
+    private ?DeliveryAddress $deliveryAddress = null;
 
     /**
      * @Serializer\SerializedName("Description")
+     * @Type("string")
      */
     private string $description;
 
     /**
      * @Serializer\SerializedName("DiscountPercentage")
+     * @Type("float")
      */
     private float $discountPercentage;
 
     /**
      * @Serializer\SerializedName("DocumentNumber")
+     * @Type("string")
      */
     private string $documentNumber;
 
     /**
      * @Serializer\SerializedName("DocumentSerialNumber")
+     * @Type("int")
      */
     private int $documentSerialNumber;
 
     /**
      * @Serializer\SerializedName("EetResponsibility")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<'DobryProgramator\iDoklad\Enum\EetResponsibility'>")
      */
     private EetResponsibility $eetResponsibility;
 
     /**
      * @Serializer\SerializedName("ExchangeRate")
+     * @Type("float")
      */
     private float $exchangeRate;
 
     /**
      * @Serializer\SerializedName("ExchangeRateAmount")
+     * @Type("float")
      */
     private float $exchangeRateAmount;
 
     /**
      * @Serializer\SerializedName("Exported")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<'DobryProgramator\iDoklad\Enum\Exported'>")
      */
     private Exported $exported;
 
     /**
      * @Serializer\SerializedName("Id")
+     * @Type("int")
      */
     private int $id;
 
     /**
      * @Serializer\SerializedName("IsEet")
+     * @Type("bool")
      */
     private bool $isEet;
 
     /**
      * @Serializer\SerializedName("IsIncomeTax")
+     * @Type("bool")
      */
     private bool $isIncomeTax;
 
     /**
      * @Serializer\SerializedName("IsSentToAccountant")
+     * @Type("bool")
      */
     private bool $isSentToAccountant;
 
     /**
      * @Serializer\SerializedName("IsSentToPurchaser")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<'DobryProgramator\iDoklad\Enum\IsSentToPurchaser'>")
      */
     private IsSentToPurchaser $isSentToPurchaser;
 
     /**
      * @Serializer\SerializedName("Items")
+     * @Type("array")
      *
      * @var array<int, Item>
      */
@@ -158,93 +180,109 @@ final class NewInvoiceResponse implements UseCaseResponseInterface
 
     /**
      * @Serializer\SerializedName("ItemsTextPrefix")
+     * @Type("string")
      */
     private string $itemsTextPrefix;
 
     /**
      * @Serializer\SerializedName("ItemsTextSuffix")
+     * @Type("string")
      */
     private string $itemsTextSuffix;
 
     /**
      * @Serializer\SerializedName("Metadata")
+     * @Type("DobryProgramator\iDoklad\UseCase\Metadata")
      */
     private Metadata $metadata;
 
     /**
      * @Serializer\SerializedName("MyAddress")
+     * @Type("DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\Response\Address")
      */
     private Address $myAddress;
 
     /**
      * @Serializer\SerializedName("Note")
+     * @Type("string")
      */
     private string $note;
 
     /**
      * @Serializer\SerializedName("OrderNumber")
+     * @Type("string")
      */
     private string $orderNumber;
 
     /**
      * @Serializer\SerializedName("PartnerAddress")
+     * @Type("DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\Response\Address")
      */
     private Address $partnerAddress;
 
     /**
      * @Serializer\SerializedName("PartnerId")
+     * @Type("int")
      */
     private int $partnerId;
 
     /**
      * @Serializer\SerializedName("PaymentOptionId")
+     * @Type("int")
      */
     private int $paymentOptionId;
 
     /**
      * @Serializer\SerializedName("PaymentStatus")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<'DobryProgramator\iDoklad\Enum\PaymentStatus'>")
      */
     private PaymentStatus $paymentStatus;
 
     /**
      * @Serializer\SerializedName("Prices")
+     * @Type("DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\Response\Prices")
      */
     private Prices $prices;
 
     /**
      * @Serializer\SerializedName("ProformaInvoices")
+     * @Type("int")
      */
-    private int $proformaInvoices;
+    private ?int $proformaInvoices = null;
 
     /**
      * @Serializer\SerializedName("RecurringInvoiceId")
+     * @Type("int")
      */
-    private int $recurringInvoiceId;
+    private ?int $recurringInvoiceId = null;
 
     /**
      * @Serializer\SerializedName("ReminderCount")
+     * @Type("int")
      */
     private int $reminderCount;
 
     /**
      * @Serializer\SerializedName("ReportLanguage")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<'DobryProgramator\iDoklad\Enum\ReportLanguage'>")
      */
     private ReportLanguage $reportLanguage;
 
     /**
      * @Serializer\SerializedName("SalesOrderId")
+     * @Type("int")
      */
-    private int $salesOrderId;
+    private ?int $salesOrderId = null;
 
     /**
      * @Serializer\SerializedName("SalesPosEquipmentId")
+     * @Type("int")
      */
-    private int $salesPosEquipmentId;
+    private ?int $salesPosEquipmentId = null;
 
     /**
      * @Serializer\SerializedName("Tags")
+     * @Type("array")
      *
      * @var array<int, Tag>
      */
@@ -252,19 +290,21 @@ final class NewInvoiceResponse implements UseCaseResponseInterface
 
     /**
      * @Serializer\SerializedName("VariableSymbol")
+     * @Type("string")
      */
     private string $variableSymbol;
 
     /**
      * @Serializer\SerializedName("VatOnPayStatus")
-     * @Serializer\Type("enum")
+     * @Serializer\Type("enum<'DobryProgramator\iDoklad\Enum\VatOnPayStatus'>")
      */
     private VatOnPayStatus $vatOnPayStatus;
 
     /**
      * @Serializer\SerializedName("VatReverseChargeCodeId")
+     * @Type("int")
      */
-    private int $vatReverseChargeCodeId;
+    private ?int $vatReverseChargeCodeId = null;
 
     public function getAttachments(): Attachment
     {
@@ -281,42 +321,42 @@ final class NewInvoiceResponse implements UseCaseResponseInterface
         return $this->currencyId;
     }
 
-    public function getDateOfAccountingEvent(): DateTimeInterface
+    public function getDateOfAccountingEvent(): \DateTimeInterface
     {
         return $this->dateOfAccountingEvent;
     }
 
-    public function getDateOfIssue(): DateTimeInterface
+    public function getDateOfIssue(): \DateTimeInterface
     {
         return $this->dateOfIssue;
     }
 
-    public function getDateOfLastReminder(): DateTimeInterface
+    public function getDateOfLastReminder(): \DateTimeInterface
     {
         return $this->dateOfLastReminder;
     }
 
-    public function getDateOfMaturity(): DateTimeInterface
+    public function getDateOfMaturity(): \DateTimeInterface
     {
         return $this->dateOfMaturity;
     }
 
-    public function getDateOfPayment(): DateTimeInterface
+    public function getDateOfPayment(): \DateTimeInterface
     {
         return $this->dateOfPayment;
     }
 
-    public function getDateOfTaxing(): DateTimeInterface
+    public function getDateOfTaxing(): \DateTimeInterface
     {
         return $this->dateOfTaxing;
     }
 
-    public function getDateOfVatApplication(): DateTimeInterface
+    public function getDateOfVatApplication(): \DateTimeInterface
     {
         return $this->dateOfVatApplication;
     }
 
-    public function getDeliveryAddress(): DeliveryAddress
+    public function getDeliveryAddress(): ?DeliveryAddress
     {
         return $this->deliveryAddress;
     }
@@ -446,12 +486,12 @@ final class NewInvoiceResponse implements UseCaseResponseInterface
         return $this->prices;
     }
 
-    public function getProformaInvoices(): int
+    public function getProformaInvoices(): ?int
     {
         return $this->proformaInvoices;
     }
 
-    public function getRecurringInvoiceId(): int
+    public function getRecurringInvoiceId(): ?int
     {
         return $this->recurringInvoiceId;
     }
@@ -466,12 +506,12 @@ final class NewInvoiceResponse implements UseCaseResponseInterface
         return $this->reportLanguage;
     }
 
-    public function getSalesOrderId(): int
+    public function getSalesOrderId(): ?int
     {
         return $this->salesOrderId;
     }
 
-    public function getSalesPosEquipmentId(): int
+    public function getSalesPosEquipmentId(): ?int
     {
         return $this->salesPosEquipmentId;
     }
@@ -491,7 +531,7 @@ final class NewInvoiceResponse implements UseCaseResponseInterface
         return $this->vatOnPayStatus;
     }
 
-    public function getVatReverseChargeCodeId(): int
+    public function getVatReverseChargeCodeId(): ?int
     {
         return $this->vatReverseChargeCodeId;
     }

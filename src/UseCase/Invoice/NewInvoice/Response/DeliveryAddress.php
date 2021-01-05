@@ -6,16 +6,19 @@ namespace DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\Response;
 
 use DobryProgramator\iDoklad\Enum\Country;
 use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\Type;
 
 final class DeliveryAddress
 {
     /**
      * @Serializer\SerializedName("City")
+     * @Type("string")
      */
     private string $city;
 
     /**
      * @Serializer\SerializedName("ContactDeliveryAddressId")
+     * @Type("int")
      */
     private int $contactDeliveryAddressId;
 
@@ -27,16 +30,19 @@ final class DeliveryAddress
 
     /**
      * @Serializer\SerializedName("Name")
+     * @Type("string")
      */
     private string $name;
 
     /**
      * @Serializer\SerializedName("PostalCode")
+     * @Type("string")
      */
     private string $postalCode;
 
     /**
      * @Serializer\SerializedName("Street")
+     * @Type("string")
      */
     private string $street;
 

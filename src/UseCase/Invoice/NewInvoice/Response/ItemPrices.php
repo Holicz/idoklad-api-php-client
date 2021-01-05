@@ -5,56 +5,67 @@ declare(strict_types=1);
 namespace DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\Response;
 
 use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\Type;
 
 final class ItemPrices
 {
     /**
      * @Serializer\SerializedName("TotalVat")
+     * @Type("float")
      */
     private float $totalVat;
 
     /**
      * @Serializer\SerializedName("TotalVatBeforeDiscount")
+     * @Type("float")
      */
     private float $totalVatBeforeDiscount;
 
     /**
      * @Serializer\SerializedName("TotalVatHc")
+     * @Type("float")
      */
     private float $totalVatHc;
 
     /**
      * @Serializer\SerializedName("TotalWithoutVat")
+     * @Type("float")
      */
     private float $totalWithoutVat;
 
     /**
      * @Serializer\SerializedName("TotalWithoutVatBeforeDiscount")
+     * @Type("float")
      */
     private float $totalWithoutVatBeforeDiscount;
 
     /**
      * @Serializer\SerializedName("TotalWithoutVatHc")
+     * @Type("float")
      */
     private float $totalWithoutVatHc;
 
     /**
      * @Serializer\SerializedName("TotalWithVat")
+     * @Type("float")
      */
     private float $totalWithVat;
 
     /**
      * @Serializer\SerializedName("TotalWithVatBeforeDiscount")
+     * @Type("float")
      */
     private float $totalWithVatBeforeDiscount;
 
     /**
      * @Serializer\SerializedName("TotalWithVatHc")
+     * @Type("float")
      */
     private float $totalWithVatHc;
 
     /**
      * @Serializer\SerializedName("UnitPrice")
+     * @Type("float")
      */
     private float $unitPrice;
 

@@ -6,26 +6,31 @@ namespace DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\Response;
 
 use DobryProgramator\iDoklad\Enum\Country;
 use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\Type;
 
 final class Address
 {
     /**
      * @Serializer\SerializedName("AccountNumber")
+     * @Type("string")
      */
     private string $accountNumber;
 
     /**
      * @Serializer\SerializedName("BankCode")
+     * @Type("string")
      */
     private string $bankCode;
 
     /**
      * @Serializer\SerializedName("BankName")
+     * @Type("string")
      */
     private string $bankName;
 
     /**
      * @Serializer\SerializedName("City")
+     * @Type("string")
      */
     private string $city;
 
@@ -37,86 +42,103 @@ final class Address
 
     /**
      * @Serializer\SerializedName("CountryName")
+     * @Type("string")
      */
     private string $countryName;
 
     /**
      * @Serializer\SerializedName("Email")
+     * @Type("string")
      */
     private string $email;
 
     /**
      * @Serializer\SerializedName("Fax")
+     * @Type("string")
      */
     private string $fax;
 
     /**
      * @Serializer\SerializedName("Firstname")
+     * @Type("string")
      */
     private string $firstname;
 
     /**
      * @Serializer\SerializedName("Iban")
+     * @Type("string")
      */
     private string $iban;
 
     /**
      * @Serializer\SerializedName("IdentificationNumber")
+     * @Type("string")
      */
     private string $identificationNumber;
 
     /**
      * @Serializer\SerializedName("Mobile")
+     * @Type("string")
      */
     private string $mobile;
 
     /**
      * @Serializer\SerializedName("NickName")
+     * @Type("string")
      */
     private string $nickName;
 
     /**
      * @Serializer\SerializedName("Phone")
+     * @Type("string")
      */
     private string $phone;
 
     /**
      * @Serializer\SerializedName("PostalCode")
+     * @Type("string")
      */
     private string $postalCode;
 
     /**
      * @Serializer\SerializedName("Street")
+     * @Type("string")
      */
     private string $street;
 
     /**
      * @Serializer\SerializedName("Surname")
+     * @Type("string")
      */
     private string $surname;
 
     /**
      * @Serializer\SerializedName("Swift")
+     * @Type("string")
      */
     private string $swift;
 
     /**
      * @Serializer\SerializedName("Title")
+     * @Type("string")
      */
     private string $title;
 
     /**
      * @Serializer\SerializedName("VatIdentificationNumber")
+     * @Type("string")
      */
     private string $vatIdentificationNumber;
 
     /**
      * @Serializer\SerializedName("VatIdentificationNumberSk")
+     * @Type("string")
      */
     private string $vatIdentificationNumberSk;
 
     /**
      * @Serializer\SerializedName("Www")
+     * @Type("string")
      */
     private string $www;
 

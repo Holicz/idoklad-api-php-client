@@ -10,10 +10,10 @@ use DobryProgramator\iDoklad\Enum\PaymentOption;
 use DobryProgramator\iDoklad\Enum\ReportLanguage;
 use DobryProgramator\iDoklad\Enum\VatOnPayStatus;
 use DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\Request\Item;
-use DobryProgramator\iDoklad\UseCase\Invoice\NewInvoiceResponse\NewInvoiceResponse;
 use DobryProgramator\iDoklad\UseCase\UseCaseRequestInterface;
 use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\HttpFoundation\Request;
+use DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\NewInvoiceResponse;
 
 final class NewInvoiceRequest implements UseCaseRequestInterface
 {
