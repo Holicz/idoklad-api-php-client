@@ -85,8 +85,6 @@ final class iDokladApiClient
             ]
         );
 
-        dump($response->getContent(false));
-
         try {
             return $response->getContent();
         } catch (ServerExceptionInterface $exception) {
