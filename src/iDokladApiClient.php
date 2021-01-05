@@ -6,13 +6,14 @@ namespace DobryProgramator\iDoklad;
 
 use DobryProgramator\iDoklad\Exception\ApiRateExceededException;
 use DobryProgramator\iDoklad\Exception\BadRequestException;
-use DobryProgramator\iDoklad\Exception\CouldNotProcessResponseException;
 use DobryProgramator\iDoklad\Exception\iDokladServerException;
 use DobryProgramator\iDoklad\Exception\NoActiveSubscriptionException;
 use DobryProgramator\iDoklad\Exception\UnauthorizedException;
 use DobryProgramator\iDoklad\Serializer\SerializerBuilder;
+use DobryProgramator\iDoklad\UseCase\iDokladResponse;
+use DobryProgramator\iDoklad\UseCase\iDokladResponseInterface;
 use DobryProgramator\iDoklad\UseCase\UseCaseRequestInterface;
-use DobryProgramator\iDoklad\UseCase\UseCaseResponseInterface;
+use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,9 +22,6 @@ use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
-
-use function json_decode;
-use function json_encode;
 
 final class iDokladApiClient
 {
@@ -46,25 +44,21 @@ final class iDokladApiClient
         $this->serializer = SerializerBuilder::build();
     }
 
-    public function sendRequest(UseCaseRequestInterface $request): UseCaseResponseInterface
+    public function sendRequest(UseCaseRequestInterface $request): iDokladResponseInterface
     {
         if (!isset($this->token)) {
             $this->authenticate();
         }
 
-        // TODO: Isn't there a better way?
         $json = $this->makeRequest($request);
-        $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
-        $json = json_encode($data['Data']);
-
-        if ($json === false) {
-            throw new CouldNotProcessResponseException();
-        }
+        $deserializationContext = DeserializationContext::create()
+            ->setAttribute(iDokladResponse::CONTEXT_RESPONSE_CLASS, $request->getResponseObjectClass());
 
         return $this->serializer->deserialize(
             $json,
-            $request->getResponseObjectClass(),
-            self::SERIALIZATION_FORMAT
+            iDokladResponse::class,
+            self::SERIALIZATION_FORMAT,
+            $deserializationContext
         );
     }
 

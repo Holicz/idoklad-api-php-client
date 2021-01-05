@@ -28,5 +28,14 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "scripts": {
+        "phpstan": "vendor/bin/phpstan analyse",
+        "ecs": "vendor/bin/ecs check",
+        "ecs-fix": "vendor/bin/ecs check --fix",
+        "code-check": [
+            "@phpstan",
+            "@ecs"
+        ]
     }
 }

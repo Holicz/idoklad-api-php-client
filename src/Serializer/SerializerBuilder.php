@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace DobryProgramator\iDoklad\Serializer;
 
-use JMS\Serializer\Handler\DateHandler;
 use JMS\Serializer\Handler\HandlerRegistry;
 use JMS\Serializer\SerializerInterface;
 
@@ -12,12 +11,14 @@ final class SerializerBuilder
 {
     public static function build(): SerializerInterface
     {
-        return \JMS\Serializer\SerializerBuilder::create()
-            ->configureHandlers(static function (HandlerRegistry $registry): void {
+        $builder = \JMS\Serializer\SerializerBuilder::create();
+
+        return $builder->configureHandlers(
+            static function (HandlerRegistry $registry) use ($builder): void {
                 $registry->registerSubscribingHandler(new EnumHandler());
-                $registry->registerSubscribingHandler(new DateHandler(\DateTime::ATOM, 'UTC'));
-            })
-            ->build()
-        ;
+                $registry->registerSubscribingHandler(new iDokladUseCaseResponseInterfaceHandler());
+                $builder->addDefaultHandlers();
+            }
+        )->build();
     }
 }
