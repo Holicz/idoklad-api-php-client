@@ -13,7 +13,7 @@
     "require": {
         "php": "^7.4",
         "ext-json": "*",
-        "jms/serializer": "^3.9",
+        "jms/serializer": "^1.9",
         "marc-mabe/php-enum": "^4.4",
         "symfony/http-client": "^5.1"
     },

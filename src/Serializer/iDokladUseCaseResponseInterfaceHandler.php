@@ -52,7 +52,8 @@ final class iDokladUseCaseResponseInterfaceHandler implements SubscribingHandler
             $value,
             [
                 'name' => $context->getAttribute(iDokladResponse::CONTEXT_RESPONSE_CLASS),
-            ]
+            ],
+            $context
         );
     }
 }
