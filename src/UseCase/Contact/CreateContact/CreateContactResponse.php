@@ -13,21 +13,25 @@ final class CreateContactResponse implements UseCaseResponseInterface
 {
     /**
      * @Serializer\SerializedName("AccountNumber")
+     * @Serializer\Type("string")
      */
     private string $accountNumber;
 
     /**
      * @Serializer\SerializedName("BankId")
+     * @Serializer\Type("int")
      */
     private ?int $bankId;
 
     /**
      * @Serializer\SerializedName("City")
+     * @Serializer\Type("string")
      */
     private string $city;
 
     /**
      * @Serializer\SerializedName("CompanyName")
+     * @Serializer\Type("string")
      */
     private string $companyName;
 
@@ -39,111 +43,133 @@ final class CreateContactResponse implements UseCaseResponseInterface
 
     /**
      * @Serializer\SerializedName("DefaultInvoiceMaturity")
+     * @Serializer\Type("int")
      */
     private ?int $defaultInvoiceMaturity;
 
     /**
      * @Serializer\SerializedName("DiscountPercentage")
+     * @Serializer\Type("float")
      */
     private float $discountPercentage;
 
     /**
      * @Serializer\SerializedName("Email")
+     * @Serializer\Type("string")
      */
     private string $email;
 
     /**
      * @Serializer\SerializedName("Fax")
+     * @Serializer\Type("string")
      */
     private string $fax;
 
     /**
      * @Serializer\SerializedName("Firstname")
+     * @Serializer\Type("string")
      */
     private string $firstname;
 
     /**
      * @Serializer\SerializedName("Iban")
+     * @Serializer\Type("string")
      */
     private string $iban;
 
     /**
      * @Serializer\SerializedName("Id")
+     * @Serializer\Type("int")
      */
     private int $id;
 
     /**
      * @Serializer\SerializedName("IdentificationNumber")
+     * @Serializer\Type("string")
      */
     private string $identificationNumber;
 
     /**
      * @Serializer\SerializedName("IsRegisteredForVatOnPay")
+     * @Serializer\Type("bool")
      */
     private bool $isRegisteredForVatOnPay;
 
     /**
      * @Serializer\SerializedName("Metadata")
+     * @Serializer\Type("DobryProgramator\iDoklad\UseCase\Metadata")
      */
     private Metadata $metadata;
 
     /**
      * @Serializer\SerializedName("Mobile")
+     * @Serializer\Type("string")
      */
     private string $mobile;
 
     /**
      * @Serializer\SerializedName("Note")
+     * @Serializer\Type("string")
      */
     private string $note;
 
     /**
      * @Serializer\SerializedName("Phone")
+     * @Serializer\Type("string")
      */
     private string $phone;
 
     /**
      * @Serializer\SerializedName("PostalCode")
+     * @Serializer\Type("string")
      */
     private string $postalCode;
 
     /**
      * @Serializer\SerializedName("SendReminders")
+     * @Serializer\Type("bool")
      */
     private bool $sendReminders;
 
     /**
      * @Serializer\SerializedName("Street")
+     * @Serializer\Type("string")
      */
     private string $street;
 
     /**
      * @Serializer\SerializedName("Surname")
+     * @Serializer\Type("string")
      */
     private string $surname;
 
     /**
      * @Serializer\SerializedName("Swift")
+     * @Serializer\Type("string")
      */
     private string $swift;
 
     /**
      * @Serializer\SerializedName("Title")
+     * @Serializer\Type("string")
      */
     private string $title;
 
     /**
      * @Serializer\SerializedName("VatIdentificationNumber")
+     * @Serializer\Type("string")
      */
     private string $vatIdentificationNumber;
 
     /**
      * @Serializer\SerializedName("VatIdentificationNumberSk")
+     * @Serializer\Type("string")
      */
     private string $vatIdentificationNumberSk;
 
     /**
      * @Serializer\SerializedName("Www")
+     * @Serializer\Type("string")
      */
     private string $www;
 

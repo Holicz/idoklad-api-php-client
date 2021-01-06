@@ -23,11 +23,13 @@ final class Metadata
 
     /**
      * @Serializer\SerializedName("UserCreatedId")
+     * @Serializer\Type("int")
      */
     private int $userCreatedId;
 
     /**
      * @Serializer\SerializedName("UserLastChangeId")
+     * @Serializer\Type("int")
      */
     private int $userLastChangedId;
 

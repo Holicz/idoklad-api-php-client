@@ -11,16 +11,19 @@ final class AuthenticationResponse implements UseCaseResponseInterface
 {
     /**
      * @Serializer\SerializedName("access_token")
+     * @Serializer\Type("string")
      */
     private string $accessToken;
 
     /**
      * @Serializer\SerializedName("expires_in")
+     * @Serializer\Type("int")
      */
     private int $expiresIn;
 
     /**
      * @Serializer\SerializedName("token_type")
+     * @Serializer\Type("string")
      */
     private string $tokenType;
 
