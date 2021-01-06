@@ -54,6 +54,9 @@ final class iDokladApiClient
         $deserializationContext = DeserializationContext::create()
             ->setAttribute(iDokladResponse::CONTEXT_RESPONSE_CLASS, $request->getResponseObjectClass());
 
+        // TODO: Remove @var annotation when updating jms/serializer to ^3.0
+
+        /** @var iDokladResponseInterface */
         return $this->serializer->deserialize(
             $json,
             iDokladResponse::class,
