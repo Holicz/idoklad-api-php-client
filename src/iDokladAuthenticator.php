@@ -56,6 +56,9 @@ final class iDokladAuthenticator
             throw new iDokladServerException();
         }
 
+        // TODO: Remove @var annotation when updating jms/serializer to ^3.0
+
+        /** @var AuthenticationResponse */
         return $this->serializer->deserialize(
             $response->getContent(false),
             $request->getResponseObjectClass(),

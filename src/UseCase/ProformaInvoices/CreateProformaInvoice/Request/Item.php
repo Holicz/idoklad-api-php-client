@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DobryProgramator\iDoklad\UseCase\ProformaInvoice\CreateProformaInvoice\Request;
+namespace DobryProgramator\iDoklad\UseCase\ProformaInvoices\CreateProformaInvoice\Request;
 
 use DobryProgramator\iDoklad\Enum\PriceType;
 use DobryProgramator\iDoklad\Enum\VatRateType;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DobryProgramator\iDoklad\UseCase\ProformaInvoice\CreateProformaInvoice;
+namespace DobryProgramator\iDoklad\UseCase\ProformaInvoices\CreateProformaInvoice;
 
 use DateTimeInterface;
 use DobryProgramator\iDoklad\Enum\Currency;
@@ -11,8 +11,7 @@ use DobryProgramator\iDoklad\Enum\Exported;
 use DobryProgramator\iDoklad\Enum\PaymentOption;
 use DobryProgramator\iDoklad\Enum\ReportLanguage;
 use DobryProgramator\iDoklad\Enum\VatOnPayStatus;
-use DobryProgramator\iDoklad\UseCase\Contact\CreateContact\CreateContactResponse;
-use DobryProgramator\iDoklad\UseCase\ProformaInvoice\CreateProformaInvoice\Request\Item;
+use DobryProgramator\iDoklad\UseCase\ProformaInvoices\CreateProformaInvoice\Request\Item;
 use DobryProgramator\iDoklad\UseCase\UseCaseRequestInterface;
 use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,9 +20,9 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
 {
     private const HTTP_METHOD = Request::METHOD_POST;
 
-    private const ENDPOINT = 'Contacts';
+    private const ENDPOINT = 'ProformaInvoices';
 
-    private const RESPONSE_CLASS = CreateContactResponse::class;
+    private const RESPONSE_CLASS = CreateProformaInvoiceResponse::class;
 
     /**
      * @Serializer\SerializedName("AccountNumber")
@@ -48,26 +47,31 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
 
     /**
      * @Serializer\SerializedName("DateOfIssue")
+     * @Serializer\Type("DateTimeInterface<'Y-m-d'>")
      */
     private DateTimeInterface $dateOfIssue;
 
     /**
      * @Serializer\SerializedName("DateOfMaturity")
+     * @Serializer\Type("DateTimeInterface<'Y-m-d'>")
      */
     private DateTimeInterface $dateOfMaturity;
 
     /**
      * @Serializer\SerializedName("DateOfPayment")
+     * @Serializer\Type("DateTimeInterface<'Y-m-d'>")
      */
     private ?DateTimeInterface $dateOfPayment = null;
 
     /**
      * @Serializer\SerializedName("DateOfTaxing")
+     * @Serializer\Type("DateTimeInterface<'Y-m-d'>")
      */
     private ?DateTimeInterface $dateOfTaxing = null;
 
     /**
      * @Serializer\SerializedName("DateOfVatApplication")
+     * @Serializer\Type("DateTimeInterface<'Y-m-d'>")
      */
     private ?DateTimeInterface $dateOfVatApplication = null;
 
@@ -128,7 +132,7 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
      *
      * @var array<int, Item>
      */
-    private array $items = [];
+    private array $items;
 
     /**
      * @Serializer\SerializedName("ItemsTextPrefix")
@@ -205,6 +209,9 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
      */
     private ?VatOnPayStatus $vatOnPayStatus = null;
 
+    /**
+     * @param array<int, Item> $items
+     */
     public function __construct(
         Currency $currencyId,
         DateTimeInterface $dateOfIssue,
@@ -214,6 +221,7 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
         bool $isEet,
         bool $isIncomeTax,
         bool $isProformaTaxed,
+        array $items,
         int $numericSequenceId,
         int $partnerId,
         PaymentOption $paymentOptionId
@@ -226,6 +234,7 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
         $this->isEet = $isEet;
         $this->isIncomeTax = $isIncomeTax;
         $this->isProformaTaxed = $isProformaTaxed;
+        $this->items = $items;
         $this->numericSequenceId = $numericSequenceId;
         $this->partnerId = $partnerId;
         $this->paymentOptionId = $paymentOptionId;
@@ -242,7 +251,7 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
     }
 
     /**
-     * @return class-string<CreateContactResponse>
+     * @return class-string<CreateProformaInvoiceResponse>
      */
     public function getResponseObjectClass(): string
     {
