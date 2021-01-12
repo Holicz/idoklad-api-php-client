@@ -13,10 +13,8 @@ final class iDokladResponse implements iDokladResponseInterface
     /**
      * @Serializer\SerializedName("Data")
      * @Serializer\Type("DobryProgramator\iDoklad\UseCase\UseCaseResponseInterface")
-     *
-     * @var UseCaseResponseInterface|string
      */
-    private $data;
+    private UseCaseResponseInterface $data;
 
     /**
      * @Serializer\SerializedName("ErrorCode")
@@ -42,7 +40,7 @@ final class iDokladResponse implements iDokladResponseInterface
      */
     private int $statusCode;
 
-    public function getData()
+    public function getData(): UseCaseResponseInterface
     {
         return $this->data;
     }
