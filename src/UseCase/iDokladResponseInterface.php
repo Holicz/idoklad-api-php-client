@@ -8,10 +8,8 @@ interface iDokladResponseInterface
 {
     /**
      * Returns data received from iDoklad
-     *
-     * @return UseCaseResponseInterface|string Either UseCaseResponse class or string when base64 encoded file returned
      */
-    public function getData();
+    public function getData(): UseCaseResponseInterface;
 
     /**
      * iDoklad internal error code

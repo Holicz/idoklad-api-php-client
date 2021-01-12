@@ -6,6 +6,7 @@ namespace DobryProgramator\iDoklad\Serializer;
 
 use DobryProgramator\iDoklad\UseCase\iDokladResponse;
 use DobryProgramator\iDoklad\UseCase\UseCaseResponseInterface;
+use DobryProgramator\iDoklad\UseCase\UseCaseStringResponse;
 use JMS\Serializer\Context;
 use JMS\Serializer\GraphNavigatorInterface;
 use JMS\Serializer\Handler\SubscribingHandlerInterface;
@@ -44,8 +45,11 @@ final class iDokladUseCaseResponseInterfaceHandler implements SubscribingHandler
         array $type,
         Context $context
     ) {
-        if (is_string($value)) {
-            return $value;
+        if (
+            is_string($value) &&
+            $context->getAttribute(iDokladResponse::CONTEXT_RESPONSE_CLASS) === UseCaseStringResponse::class
+        ) {
+            return new UseCaseStringResponse($value);
         }
 
         return $context->getNavigator()->accept(

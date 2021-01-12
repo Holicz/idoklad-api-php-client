@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace DobryProgramator\iDoklad\UseCase\Reports\IssuedInvoice;
 
 use DobryProgramator\iDoklad\Enum\ReportLanguage;
+use DobryProgramator\iDoklad\UseCase\UseCaseStringResponse;
 use Symfony\Component\HttpFoundation\Request;
 use DobryProgramator\iDoklad\UseCase\UseCaseRequestInterface;
 use JMS\Serializer\Annotation as Serializer;
@@ -13,6 +14,8 @@ final class IssuedInvoiceRequest implements UseCaseRequestInterface
     private const HTTP_METHOD = Request::METHOD_GET;
 
     private const ENDPOINT = 'Reports/IssuedInvoice/%d/Pdf';
+
+    private const RESPONSE_CLASS = UseCaseStringResponse::class;
 
     /**
      * @Serializer\SerializedName("id")
@@ -34,8 +37,8 @@ final class IssuedInvoiceRequest implements UseCaseRequestInterface
 
     public function __construct(
         int $id,
-        bool $compressed = false,
-        ReportLanguage $language
+        ReportLanguage $language,
+        bool $compressed = false
     ) {
         $this->id = $id;
         $this->compressed = $compressed;
@@ -53,7 +56,7 @@ final class IssuedInvoiceRequest implements UseCaseRequestInterface
     }
 
     /**
-     * @return class-string<CreateContactResponse>
+     * @return class-string<UseCaseStringResponse>
      */
     public function getResponseObjectClass(): string
     {
