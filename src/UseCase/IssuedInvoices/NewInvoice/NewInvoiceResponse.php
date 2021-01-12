@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice;
+namespace DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice;
 
 use DobryProgramator\iDoklad\Enum\Currency;
 use DobryProgramator\iDoklad\Enum\EetResponsibility;
@@ -11,13 +11,13 @@ use DobryProgramator\iDoklad\Enum\IsSentToPurchaser;
 use DobryProgramator\iDoklad\Enum\PaymentStatus;
 use DobryProgramator\iDoklad\Enum\ReportLanguage;
 use DobryProgramator\iDoklad\Enum\VatOnPayStatus;
-use DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\Attachment;
-use DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\DeliveryAddress;
-use DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\Item;
-use DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\MyAddress;
-use DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\PartnerAddress;
-use DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\Prices;
-use DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\Tag;
+use DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\Attachment;
+use DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\DeliveryAddress;
+use DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\Item;
+use DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\MyAddress;
+use DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\PartnerAddress;
+use DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\Prices;
+use DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\Tag;
 use DobryProgramator\iDoklad\UseCase\Metadata;
 use DobryProgramator\iDoklad\UseCase\UseCaseResponseInterface;
 use JMS\Serializer\Annotation as Serializer;
@@ -26,7 +26,7 @@ final class NewInvoiceResponse implements UseCaseResponseInterface
 {
     /**
      * @Serializer\SerializedName("Attachments")
-     * @Serializer\Type("array<\DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\Attachment>")
+     * @Serializer\Type("array<DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\Attachment>")
      *
      * @var array<int, Attachment>
      */
@@ -88,7 +88,7 @@ final class NewInvoiceResponse implements UseCaseResponseInterface
 
     /**
      * @Serializer\SerializedName("DeliveryAddress")
-     * @Serializer\Type("DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\DeliveryAddress")
+     * @Serializer\Type("DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\DeliveryAddress")
      */
     private ?DeliveryAddress $deliveryAddress = null;
 
@@ -172,7 +172,7 @@ final class NewInvoiceResponse implements UseCaseResponseInterface
 
     /**
      * @Serializer\SerializedName("Items")
-     * @Serializer\Type("array<\DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\Item>")
+     * @Serializer\Type("array<DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\Item>")
      *
      * @var array<int, Item>
      */
@@ -198,7 +198,7 @@ final class NewInvoiceResponse implements UseCaseResponseInterface
 
     /**
      * @Serializer\SerializedName("MyAddress")
-     * @Serializer\Type("DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\Address")
+     * @Serializer\Type("DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\MyAddress")
      */
     private MyAddress $myAddress;
 
@@ -216,7 +216,7 @@ final class NewInvoiceResponse implements UseCaseResponseInterface
 
     /**
      * @Serializer\SerializedName("PartnerAddress")
-     * @Serializer\Type("DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\Address")
+     * @Serializer\Type("DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\PartnerAddress")
      */
     private PartnerAddress $partnerAddress;
 
@@ -240,7 +240,7 @@ final class NewInvoiceResponse implements UseCaseResponseInterface
 
     /**
      * @Serializer\SerializedName("Prices")
-     * @Serializer\Type("DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\Prices")
+     * @Serializer\Type("DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\Prices")
      */
     private Prices $prices;
 
@@ -282,7 +282,7 @@ final class NewInvoiceResponse implements UseCaseResponseInterface
 
     /**
      * @Serializer\SerializedName("Tags")
-     * @Serializer\Type("array<\DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\Tag>")
+     * @Serializer\Type("array<DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\Tag>")
      *
      * @var array<int, Tag>
      */

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response;
+namespace DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response;
 
 use DobryProgramator\iDoklad\Enum\ItemType;
 use DobryProgramator\iDoklad\Enum\PriceType;
 use DobryProgramator\iDoklad\Enum\VatRateType;
 use JMS\Serializer\Annotation as Serializer;
-use DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\Item\Prices;
+use DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\Item\Prices;
 
 final class Item
 {
@@ -64,11 +64,11 @@ final class Item
      * @Serializer\SerializedName("PriceListItemId")
      * @Serializer\Type("string")
      */
-    private int $priceListItemId;
+    private ?int $priceListItemId;
 
     /**
      * @Serializer\SerializedName("Prices")
-     * @Serializer\Type("DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\Response\Item\Prices")
+     * @Serializer\Type("DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\Item\Prices")
      */
     private Prices $prices;
 
@@ -88,7 +88,7 @@ final class Item
      * @Serializer\SerializedName("VatCodeId")
      * @Serializer\Type("int")
      */
-    private int $vatCodeId;
+    private ?int $vatCodeId;
 
     /**
      * @Serializer\SerializedName("VatRate")

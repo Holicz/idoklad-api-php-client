@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice;
+namespace DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice;
 
 use DobryProgramator\iDoklad\Enum\Currency;
 use DobryProgramator\iDoklad\Enum\EetResponsibility;
 use DobryProgramator\iDoklad\Enum\PaymentOption;
 use DobryProgramator\iDoklad\Enum\ReportLanguage;
 use DobryProgramator\iDoklad\Enum\VatOnPayStatus;
-use DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Request\Item;
+use DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Request\Item;
 use DobryProgramator\iDoklad\UseCase\UseCaseRequestInterface;
 use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\HttpFoundation\Request;
-use DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\NewInvoiceResponse;
+use DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\NewInvoiceResponse;
 
 final class NewInvoiceRequest implements UseCaseRequestInterface
 {

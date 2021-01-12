@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\Request;
+namespace DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Request;
 
 use DobryProgramator\iDoklad\Enum\ItemType;
 use DobryProgramator\iDoklad\Enum\PriceType;

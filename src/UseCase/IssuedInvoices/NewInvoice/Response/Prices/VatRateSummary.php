@@ -2,23 +2,18 @@
 
 declare(strict_types=1);
 
-namespace DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\Item;
+namespace DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\Prices;
 
+use DobryProgramator\iDoklad\Enum\VatRateType;
 use JMS\Serializer\Annotation as Serializer;
 
-final class Prices
+final class VatRateSummary
 {
     /**
      * @Serializer\SerializedName("TotalVat")
      * @Serializer\Type("float")
      */
     private float $totalVat;
-
-    /**
-     * @Serializer\SerializedName("TotalVatBeforeDiscount")
-     * @Serializer\Type("float")
-     */
-    private float $totalVatBeforeDiscount;
 
     /**
      * @Serializer\SerializedName("TotalVatHc")
@@ -33,12 +28,6 @@ final class Prices
     private float $totalWithoutVat;
 
     /**
-     * @Serializer\SerializedName("TotalWithoutVatBeforeDiscount")
-     * @Serializer\Type("float")
-     */
-    private float $totalWithoutVatBeforeDiscount;
-
-    /**
      * @Serializer\SerializedName("TotalWithoutVatHc")
      * @Serializer\Type("float")
      */
@@ -51,22 +40,16 @@ final class Prices
     private float $totalWithVat;
 
     /**
-     * @Serializer\SerializedName("TotalWithVatBeforeDiscount")
-     * @Serializer\Type("float")
-     */
-    private float $totalWithVatBeforeDiscount;
-
-    /**
      * @Serializer\SerializedName("TotalWithVatHc")
      * @Serializer\Type("float")
      */
     private float $totalWithVatHc;
 
     /**
-     * @Serializer\SerializedName("UnitPrice")
-     * @Serializer\Type("float")
+     * @Serializer\SerializedName("VatRateType")
+     * @Serializer\Type("enum<'DobryProgramator\iDoklad\Enum\VatRateType'>")
      */
-    private float $unitPrice;
+    private VatRateType $vatRateType;
 
     public function getTotalVat(): float
     {
@@ -88,11 +71,6 @@ final class Prices
         return $this->totalWithoutVat;
     }
 
-    public function getTotalWithoutVatBeforeDiscount(): float
-    {
-        return $this->totalWithoutVatBeforeDiscount;
-    }
-
     public function getTotalWithoutVatHc(): float
     {
         return $this->totalWithoutVatHc;
@@ -103,19 +81,14 @@ final class Prices
         return $this->totalWithVat;
     }
 
-    public function getTotalWithVatBeforeDiscount(): float
-    {
-        return $this->totalWithVatBeforeDiscount;
-    }
-
     public function getTotalWithVatHc(): float
     {
         return $this->totalWithVatHc;
     }
 
-    public function getUnitPrice(): float
+    public function getVatRateType(): VatRateType
     {
-        return $this->unitPrice;
+        return $this->vatRateType;
     }
 
 

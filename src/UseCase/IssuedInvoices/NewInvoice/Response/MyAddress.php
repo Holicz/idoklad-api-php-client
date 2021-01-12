@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response;
+namespace DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response;
 
 use DobryProgramator\iDoklad\Enum\Country;
 use JMS\Serializer\Annotation as Serializer;
 
-final class PartnerAddress
+final class MyAddress
 {
     /**
      * @Serializer\SerializedName("AccountNumber")

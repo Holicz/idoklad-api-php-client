@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response;
+namespace DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response;
 
 use JMS\Serializer\Annotation as Serializer;
-use DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response\Prices\VatRateSummary;
+use DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\Prices\VatRateSummary;
 
 final class Prices
 {
@@ -69,18 +69,13 @@ final class Prices
 
     /**
      * @Serializer\SerializedName("VatRateSummary")
-     * @Serializer\Type("DobryProgramator\iDoklad\UseCase\Invoice\NewInvoice\Response\Prices\VatRateSummary")
+     * @Serializer\Type("DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response\Prices\VatRateSummary")
      */
     private VatRateSummary $vatRateSummary;
 
     public function getTotalDiscountAmount(): float
     {
         return $this->totalDiscountAmount;
-    }
-
-    public function getTotalVatBeforeDiscount(): float
-    {
-        return $this->totalVatBeforeDiscount;
     }
 
     public function getTotalPaid(): float
@@ -127,9 +122,9 @@ final class Prices
     {
         return $this->totalWithVatHc;
     }
+
     public function getVatRateSummary(): VatRateSummary
     {
         return $this->vatRateSummary;
     }
-
 }

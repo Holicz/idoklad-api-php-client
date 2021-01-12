@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DobryProgramator\iDoklad\UseCase\IssuedInvoice\NewInvoice\Response;
+namespace DobryProgramator\iDoklad\UseCase\IssuedInvoices\NewInvoice\Response;
 
 use JMS\Serializer\Annotation as Serializer;
 
