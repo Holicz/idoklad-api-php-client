@@ -29,6 +29,8 @@ $response = $idokladClient->sendRequest($createContactRequest);
 Corresponds to iDoklad documentation, enum name is `NameEnglish`.
 ## Currency [🔗](https://api.idoklad.cz/Help/v3/en/#api-Lists-CurrenciesList_of_currencies)
 Corresponds to iDoklad documentation, enum name is `Code`.
+## DocumentType
+Corresponds to iDoklad documentation, enum name is `DocumentType`.
 ## EetResponsibility
 | iDoklad explanation                                                | Enum                                                                    |
 |--------------------------------------------------------------------|-------------------------------------------------------------------------|
@@ -41,6 +43,10 @@ Corresponds to iDoklad documentation, enum name is `Code`.
 | The document was exported to an external accounting system. Changing a document with Exported = 1 will change the exported value to Changed. | `DobryProgramator\iDoklad\Enum\Exported::EXPORTED`     |
 | The document was exported and later changed in ItsMyBill.                                                                                    | `DobryProgramator\iDoklad\Enum\Exported::CHANGED`      |
 | The document was exported and later deleted in ItsMyBill.                                                                                    | `DobryProgramator\iDoklad\Enum\Exported::DELETED`      |
+## IsSentToPurchaser
+Corresponds to iDoklad documentation, enum name is `IsSentToPurchaser`.
+## ItemType
+Corresponds to iDoklad documentation, enum name is `ItemType`.
 ## Payment option
 | iDoklad name       | Enum                                                              |
 |--------------------|-------------------------------------------------------------------|
@@ -53,6 +59,8 @@ Corresponds to iDoklad documentation, enum name is `Code`.
 | Haléřové dorovnání | `DobryProgramator\iDoklad\Enum\PaymentOption::PENNY_COMPENSATION` |
 | Stravenka          | `DobryProgramator\iDoklad\Enum\PaymentOption::MEAL_VOUCHER`       |
 | PayPal             | `DobryProgramator\iDoklad\Enum\PaymentOption::PAYPAL`             |
+## PaymentStatus
+Corresponds to iDoklad documentation, enum name is `PaymentStatus`.
 ## PriceType 
 | iDoklad explanation | Enum                                                   |
 |---------------------|--------------------------------------------------------|
