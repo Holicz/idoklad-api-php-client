@@ -13,7 +13,7 @@ final class ListNumericSequencesResponse implements UseCaseResponseInterface
 {
     /**
      * @Serializer\SerializedName("Items")
-     * @Serializer\Type("array<\DobryProgramator\iDoklad\UseCase\NumericSequences\ListNumericSequences\Response\Item>")
+     * @Serializer\Type("array<DobryProgramator\iDoklad\UseCase\NumericSequences\ListNumericSequences\Response\Item>")
      *
      * @var array<int, Item>
      */
