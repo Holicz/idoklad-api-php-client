@@ -11,7 +11,7 @@ final class Item
 {
     /**
      * @Serializer\SerializedName("DocumentType")
-     * @Serializer\Type("enum<\DobryProgramator\iDoklad\Enum\DocumentType>")
+     * @Serializer\Type("enum<DobryProgramator\iDoklad\Enum\DocumentType>")
      */
     private DocumentType $documentType;
 
@@ -35,7 +35,7 @@ final class Item
 
     /**
      * @Serializer\SerializedName("Metadata")
-     * @Serializer\Type("enum<\DobryProgramator\iDoklad\UseCase\NumericSequences\ListNumericSequences\Response\Metadata>")
+     * @Serializer\Type("enum<DobryProgramator\iDoklad\UseCase\NumericSequences\ListNumericSequences\Response\Metadata>")
      */
     private Metadata $metadata;
 
