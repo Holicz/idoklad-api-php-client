@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace DobryProgramator\iDoklad\UseCase\NumericSequences\ListNumericSequences\Response;
 
 use DobryProgramator\iDoklad\Enum\DocumentType;
+use DobryProgramator\iDoklad\UseCase\Metadata;
 use JMS\Serializer\Annotation as Serializer;
 
 final class Item
 {
     /**
      * @Serializer\SerializedName("DocumentType")
-     * @Serializer\Type("enum<DobryProgramator\iDoklad\Enum\DocumentType>")
+     * @Serializer\Type("enum<'DobryProgramator\iDoklad\Enum\DocumentType'>")
      */
     private DocumentType $documentType;
 
@@ -35,7 +36,7 @@ final class Item
 
     /**
      * @Serializer\SerializedName("Metadata")
-     * @Serializer\Type("enum<DobryProgramator\iDoklad\UseCase\NumericSequences\ListNumericSequences\Response\Metadata>")
+     * @Serializer\Type("DobryProgramator\iDoklad\UseCase\Metadata")
      */
     private Metadata $metadata;
 
