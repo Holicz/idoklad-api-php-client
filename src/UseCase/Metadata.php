@@ -25,7 +25,7 @@ final class Metadata
      * @Serializer\SerializedName("UserCreatedId")
      * @Serializer\Type("int")
      */
-    private int $userCreatedId;
+    private ?int $userCreatedId = null;
 
     /**
      * @Serializer\SerializedName("UserLastChangeId")
