@@ -27,6 +27,8 @@ final class DocumentType extends Enum
     public const RECURRING_INVOICE = 8;
 
     public const INTERNAL_DOCUMENT = 9;
+    
+    public const ISSUED_TAX_DOCUMENT = 10;
 
     public const REGISTERED_SALE = 101;
 
