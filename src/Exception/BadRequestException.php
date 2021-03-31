@@ -9,9 +9,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class BadRequestException extends RuntimeException
 {
-    public function __construct()
+    public function __construct(string $content)
     {
-        parent::__construct('Bad request. Most likely you passed in wrong data, please check the documentation ' .
-                            'for integrity constraints', Response::HTTP_BAD_REQUEST);
+        parent::__construct(
+            sprintf(
+                'Bad request. Most likely you passed in wrong data, please check the documentation ' .
+                'for integrity constraints. iDoklad response: %s',
+                $content
+            ),
+            Response::HTTP_BAD_REQUEST
+        );
     }
 }

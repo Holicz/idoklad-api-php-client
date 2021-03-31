@@ -87,15 +87,17 @@ final class iDokladApiClient
                 ],
             ]
         );
-        
+
         try {
             return $response->getContent();
         } catch (ServerExceptionInterface $exception) {
             throw new iDokladServerException();
         } catch (ClientExceptionInterface $exception) {
+            $content = $exception->getResponse()->getContent(false);
+
             switch ($exception->getCode()) {
                 case Response::HTTP_BAD_REQUEST:
-                    throw new BadRequestException();
+                    throw new BadRequestException($content);
                 case Response::HTTP_UNAUTHORIZED:
                     throw new UnauthorizedException();
                 case Response::HTTP_PAYMENT_REQUIRED:
@@ -103,7 +105,7 @@ final class iDokladApiClient
                 case Response::HTTP_TOO_MANY_REQUESTS:
                     throw new ApiRateExceededException();
                 default:
-                    throw new BadRequestException();
+                    throw new BadRequestException($content);
             }
         }
     }
