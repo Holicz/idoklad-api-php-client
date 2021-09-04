@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^7.4|^8.0",
         "ext-json": "*",
         "jms/serializer": "^1.9|^3.9",
         "marc-mabe/php-enum": "^4.4",
