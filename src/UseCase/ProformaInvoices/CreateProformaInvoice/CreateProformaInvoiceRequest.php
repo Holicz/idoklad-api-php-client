@@ -123,11 +123,6 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
     private bool $isIncomeTax;
 
     /**
-     * @Serializer\SerializedName("IsProformaTaxed")
-     */
-    private bool $isProformaTaxed;
-
-    /**
      * @Serializer\SerializedName("Items")
      *
      * @var array<int, Item>
@@ -220,7 +215,6 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
         int $documentSerialNumber,
         bool $isEet,
         bool $isIncomeTax,
-        bool $isProformaTaxed,
         array $items,
         int $numericSequenceId,
         int $partnerId,
@@ -233,7 +227,6 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
         $this->documentSerialNumber = $documentSerialNumber;
         $this->isEet = $isEet;
         $this->isIncomeTax = $isIncomeTax;
-        $this->isProformaTaxed = $isProformaTaxed;
         $this->items = $items;
         $this->numericSequenceId = $numericSequenceId;
         $this->partnerId = $partnerId;
@@ -423,11 +416,6 @@ final class CreateProformaInvoiceRequest implements UseCaseRequestInterface
     public function isIncomeTax(): bool
     {
         return $this->isIncomeTax;
-    }
-
-    public function isProformaTaxed(): bool
-    {
-        return $this->isProformaTaxed;
     }
 
     /**
