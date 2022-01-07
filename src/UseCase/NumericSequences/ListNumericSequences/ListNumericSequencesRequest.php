@@ -60,7 +60,7 @@ final class ListNumericSequencesRequest implements UseCaseRequestInterface
     }
 
     /**
-     * @return class-string<CreateContactResponse>
+     * @return class-string<ListNumericSequencesResponse>
      */
     public function getResponseObjectClass(): string
     {
