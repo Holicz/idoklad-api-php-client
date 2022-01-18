@@ -31,7 +31,7 @@ final class Metadata
      * @Serializer\SerializedName("UserLastChangeId")
      * @Serializer\Type("int")
      */
-    private int $userLastChangedId;
+    private ?int $userLastChangedId;
 
     public function getDateCreated(): DateTimeInterface
     {
@@ -48,7 +48,7 @@ final class Metadata
         return $this->userCreatedId;
     }
 
-    public function getUserLastChangedId(): int
+    public function getUserLastChangedId(): ?int
     {
         return $this->userLastChangedId;
     }
