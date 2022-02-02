@@ -37,14 +37,14 @@ final class iDokladApiClient
 
     private ?string $token;
 
-	private ?string $preferredLanguage;
+    private ?string $preferredLanguage;
 
     public function __construct(string $clientId, string $clientSecret, ?string $preferredLanguage = null)
     {
         $this->iDokladAuthenticator = new iDokladAuthenticator($clientId, $clientSecret);
         $this->httpClient = HttpClient::createForBaseUri(self::BASE_URI);
         $this->serializer = SerializerBuilder::build();
-		$this->preferredLanguage = $preferredLanguage;
+        $this->preferredLanguage = $preferredLanguage;
     }
 
     public function sendRequest(UseCaseRequestInterface $request, ?string $preferredLanguage = null): iDokladResponseInterface
@@ -79,14 +79,14 @@ final class iDokladApiClient
      */
     private function makeRequest(UseCaseRequestInterface $request, ?string $preferredLanguage = null): string
     {
-		$headers = ['Content-Type' => 'application/json'];
+        $headers = ['Content-Type' => 'application/json'];
 
-		if ($preferredLanguage !== null) {
-			$headers['Accept-Language'] = $preferredLanguage;
+        if ($preferredLanguage !== null) {
+            $headers['Accept-Language'] = $preferredLanguage;
 
-		} elseif ($this->preferredLanguage !== null) {
-			$headers['Accept-Language'] = $this->preferredLanguage;
-		}
+        } elseif ($this->preferredLanguage !== null) {
+            $headers['Accept-Language'] = $this->preferredLanguage;
+        }
 
         $response = $this->httpClient->request(
             $request->getHttpMethod(),
