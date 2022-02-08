@@ -37,20 +37,23 @@ final class iDokladApiClient
 
     private ?string $token;
 
-    public function __construct(string $clientId, string $clientSecret)
+    private ?string $preferredLanguage;
+
+    public function __construct(string $clientId, string $clientSecret, ?string $preferredLanguage = null)
     {
         $this->iDokladAuthenticator = new iDokladAuthenticator($clientId, $clientSecret);
         $this->httpClient = HttpClient::createForBaseUri(self::BASE_URI);
         $this->serializer = SerializerBuilder::build();
+        $this->preferredLanguage = $preferredLanguage;
     }
 
-    public function sendRequest(UseCaseRequestInterface $request): iDokladResponseInterface
+    public function sendRequest(UseCaseRequestInterface $request, ?string $preferredLanguage = null): iDokladResponseInterface
     {
         if (!isset($this->token)) {
             $this->authenticate();
         }
 
-        $json = $this->makeRequest($request);
+        $json = $this->makeRequest($request, $preferredLanguage);
         $deserializationContext = DeserializationContext::create()
             ->setAttribute(iDokladResponse::CONTEXT_RESPONSE_CLASS, $request->getResponseObjectClass());
 
@@ -74,17 +77,24 @@ final class iDokladApiClient
      * @throws NoActiveSubscriptionException
      * @throws UnauthorizedException
      */
-    private function makeRequest(UseCaseRequestInterface $request): string
+    private function makeRequest(UseCaseRequestInterface $request, ?string $preferredLanguage = null): string
     {
+        $headers = ['Content-Type' => 'application/json'];
+
+        if ($preferredLanguage !== null) {
+            $headers['Accept-Language'] = $preferredLanguage;
+
+        } elseif ($this->preferredLanguage !== null) {
+            $headers['Accept-Language'] = $this->preferredLanguage;
+        }
+
         $response = $this->httpClient->request(
             $request->getHttpMethod(),
             $request->getEndpoint(),
             [
                 'body' => $this->serializeRequest($request),
                 'auth_bearer' => $this->token,
-                'headers' => [
-                    'Content-Type' => 'application/json',
-                ],
+                'headers' => $headers,
             ]
         );
 
