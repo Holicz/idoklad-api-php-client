@@ -269,3 +269,5 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,phpstorm+all,windows,linux,sublimetext,visualstudiocode,composer,symfony
+
+composer.lock
