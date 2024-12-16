@@ -30,8 +30,9 @@ final class DocumentType extends Enum
     
     public const ISSUED_TAX_DOCUMENT = 10;
 
+    public const RECEIPT = 11;
+
     public const REGISTERED_SALE = 101;
 
     public const ISSUED_DOCUMENT_TEMPLATE = 102;
-
 }
